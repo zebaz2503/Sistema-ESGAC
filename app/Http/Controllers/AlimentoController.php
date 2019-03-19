@@ -74,7 +74,7 @@ class AlimentoController extends Controller
     public function edit($id)
     {
         //
-        $alimento= Alimento::findOrFail($id);
+        $alimentos= Alimento::findOrFail($id);
 
         return view('alimentos.edit', compact('alimentos'));
 
@@ -112,7 +112,7 @@ class AlimentoController extends Controller
      * @param  \App\alimento  $alimento
      * @return \Illuminate\Http\Response
      */
-    public function destroy(alimento $id)
+    public function destroy($id)
     {
         //
         $alimentos= Alimento::findOrFail($id);
