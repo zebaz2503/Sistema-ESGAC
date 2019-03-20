@@ -1,33 +1,25 @@
+@extends('admin.layout')
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+@section('content')
 
 
-
-</head>
-<body>
 @if(Session::has('Mensaje')){{
 
 Session::get('Mensaje')
 }}
 @endif
 
-<a href="{{ url('anomalias/create') }}">Agregar Anomalias</a>
+<a href="{{ url('anomalias/create') }}" id="sample_editable_1_new" class="btn green-meadow">Agregar Anomalias +</a>
 
 
 
-<table class="table table-light">
+<table class="table table-striped table-hover table-bordered dataTable no-footer">
     <thead class="thead-light">
         <tr>
-            <th>#</th>
-            <th>Tipo de Anomalia</th>
-            <th>Descripcion</th>
-            <th>Acciones</th>
+        <th style="text-align: center">#</th>
+        <th style="text-align: center">Tipo de Anomalia</th>
+        <th style="text-align: center">Descripción</th>
+        <th style="text-align: center">Acciones</th>
         </tr>
     </thead>
 
@@ -35,25 +27,26 @@ Session::get('Mensaje')
     <tbody>
     @foreach($anomalias as $anomalia) <!--variable unica para mostrar-->
         <tr>
-            <td>{{$loop->iteration}}</td>
+        <td align="center">{{$loop->iteration}}</td>
          
-            <th>{{ $anomalia->TipoAnomalia}}</th><!--tener cuidado con el nombre en la tabla de base de datos-->
-            <th>{{ $anomalia->Descripcion}}</th>
-            <th>
+        <td align="center">{{ $anomalia->TipoAnomalia}}</th><!--tener cuidado con el nombre en la tabla de base de datos-->
+        <td align="center">{{ $anomalia->Descripcion}}</th>
+        
+        <td align="center">
             
-            <a href="{{ url('/anomalias/'.$anomalia->id.'/edit') }}">
+            <a class="btn btn-transparent green btn-outline btn-circle btn-sm active" href="{{ url('/anomalias/'.$anomalia->id.'/edit') }}">
             Editar
             </a>
 
-            | 
+            
             
             <!--metodo para borrar un dato de la base de datos-->
-            <form method="post" action="{{ url('/anomalias/'.$anomalia->id) }}">
+            <form method="post" action="{{ url('/anomalias/'.$anomalia->id) }}" style="display:inline">
             {{csrf_field()}}
 
             {{ method_field('DELETE') }}
 
-            <button type="submit" onclick="return confirm('Borrar?');">Borrar </button> 
+            <button type="submit" class="btn btn-transparent red btn-outline btn-circle btn-sm active" onclick="return confirm('Borrar?');">Borrar </button> 
                 
             </form>
             
@@ -63,11 +56,6 @@ Session::get('Mensaje')
     </tbody>
 </table>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
-</body>
-</html>
-
+@endsection
 
 

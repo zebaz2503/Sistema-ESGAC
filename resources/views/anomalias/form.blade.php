@@ -1,18 +1,21 @@
 
-
-<label for="TipoAnomalia">{{'TipoAnomalia'}}</label>
-<input type="text" name="TipoAnomalia" id="TipoAnomalia" 
+<div class="form-group">
+<label for="TipoAnomalia" class="control-label">{{'TipoAnomalia'}}</label>
+<input type="text"  class="form-control" name="TipoAnomalia" id="TipoAnomalia" 
 
 value="{{ isset($anomalias->TipoAnomalia) ? $anomalias->TipoAnomalia:'' }}">
-<br/>
+</div>
+<!-- -------------------------------   -------------------------------------------->
 
-<label for="Descripcion">{{'Descripcion'}}</label>
-<input type="text" name="Descripcion" id="Descripcion" 
+<div class="form-group">
+<label for="Descripcion" class="control-label">{{'Descripcion'}}</label>
+<input type="text" class="form-control" name="Descripcion" id="Descripcion" 
 
 value="{{ isset($anomalias->Descripcion) ? $anomalias->Descripcion:'' }}">
-<br/>
+</div>
+<!-- -------------------------------   -------------------------------------------->
 
 
-<input type="submit" value="{{ $Modo=='crear' ? 'Agregar':'Modificar'  }}">
+<input class="btn btn-primary" type="submit" value="{{ $Modo=='crear' ? 'Agregar':'Modificar'  }}">
 
-<a href="{{ url('anomalias') }}">Volver</a>
+<a href="{{ url('anomalias') }}" class="btn dark">Volver</a>

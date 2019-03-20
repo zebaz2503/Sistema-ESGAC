@@ -1,4 +1,6 @@
-Sección para crear anomalias
+@extends('admin.layout')
+
+@section('content')
 
 <form action="{{ url('/anomalias')}}" method="post" enctype="multipart/form-data">
 
@@ -6,5 +8,6 @@ Sección para crear anomalias
 {{csrf_field()}}
 @include('anomalias.form',['Modo'=>'crear'])
 
-
 </form>
+
+@endsection
