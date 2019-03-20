@@ -1,16 +1,24 @@
 <div class="form-group">
 <label for="Nombre" class="control-label">{{'Nombre'}}</label>
-<input class="form-control" type="text" name="Nombre" id="Nombre" 
+<span class="required" aria-required="true"> * </span>
+<input class="form-control" type="text" 
+name="Nombre" 
+id="Nombre" 
 
 value="{{ isset($razas->nombre) ? $razas->nombre:'' }}">
+{!! $errors->first('Nombre','<div class="invalid-feedback">:message</div>')    !!}
 </div>
 <!-- -------------------------------   -------------------------------------------->
 
 <div class="form-group">
 <label for="Descripcion" class="control-label">{{'Descripcion'}}</label>
-<input class="form-control" type="text" name="Descripcion" id="Descripcion" 
+<span class="required" aria-required="true"> * </span>
+<input class="form-control" type="text" 
+name="Descripcion" 
+id="Descripcion" 
 
 value="{{ isset($razas->descripcion) ? $razas->descripcion:'' }}">
+{!! $errors->first('Descripcion','<div class="invalid-feedback">:message</div>')    !!}
 </div>
 <!-- -------------------------------   -------------------------------------------->
 

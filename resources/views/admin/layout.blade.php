@@ -32,6 +32,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="{{ asset('/master_admin/global/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/master_admin/global/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/master_admin/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }}" rel="stylesheet" type="text/css" />
+        
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="{{ asset('/master_admin/global/css/components-md.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
@@ -2301,6 +2302,9 @@ License: You must have a valid license purchased only from themeforest(the above
             <script src="{{ asset('/master_admin/layouts/layout2/scripts/demo.min.js') }}" type="text/javascript"></script>
             <script src="{{ asset('/master_admin/layouts/global/scripts/quick-sidebar.min.js') }}" type="text/javascript"></script>
             <script src="{{ asset('/master_admin/layouts/global/scripts/quick-nav.min.js') }}" type="text/javascript"></script>
+            
+            
+            
             <!-- END THEME LAYOUT SCRIPTS -->
             <script>
                 $(document).ready(function()

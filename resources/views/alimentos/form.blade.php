@@ -1,8 +1,13 @@
 <div class="form-group">
 <label for="nombre_alimento" class="control-label">{{'Nombre del Alimento'}}</label>
-<input type="text" class="form-control" name="nombre_alimento" id="nombre_alimento" 
+<span class="required" aria-required="true"> * </span>
+<input type="text" class="form-control {{$errors->has('nombre_alimento')?'is-invalid':'' }}" 
+name="nombre_alimento" 
+id="nombre_alimento" 
 
 value="{{ isset($alimentos->nombre_alimento) ? $alimentos->nombre_alimento:'' }}">
+{!! $errors->first('nombre_alimento','<div class="invalid-feedback">:message</div>')    !!}
+
 </div>
 
 <!-- -------------------------------   -------------------------------------------->
@@ -10,9 +15,14 @@ value="{{ isset($alimentos->nombre_alimento) ? $alimentos->nombre_alimento:'' }}
 <div class="form-group">
 
 <label for="grasas" class="control-label">{{'Grasas'}}</label>
-<input type="text" class="form-control" name="grasas" id="grasas" 
+<span class="required" aria-required="true"> * </span>
+<input type="text" class="form-control {{$errors->has('grasas')?'is-invalid':'' }}" 
+name="grasas" 
+id="grasas" 
 
 value="{{ isset($alimentos->grasas) ? $alimentos->grasas:'' }}">
+{!! $errors->first('grasas','<div class="invalid-feedback">:message</div>')    !!}
+
 </div>
 
 
@@ -21,9 +31,14 @@ value="{{ isset($alimentos->grasas) ? $alimentos->grasas:'' }}">
 
 <div class="form-group">
 <label for="carbohidratos" class="control-label">{{'Carbohidratos'}}</label>
-<input type="text" class="form-control" name="carbohidratos" id="carbohidratos" 
+<span class="required" aria-required="true"> * </span>
+<input type="text" class="form-control {{$errors->has('carbohidratos')?'is-invalid':'' }}" 
+name="carbohidratos" 
+id="carbohidratos" 
 
 value="{{ isset($alimentos->carbohidratos) ? $alimentos->carbohidratos:'' }}">
+{!! $errors->first('carbohidratos','<div class="invalid-feedback">:message</div>')    !!}
+
 
 </div>
 

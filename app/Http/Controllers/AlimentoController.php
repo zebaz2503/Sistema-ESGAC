@@ -44,6 +44,21 @@ class AlimentoController extends Controller
     public function store(Request $request)
     {
         //
+
+        $campos=[
+
+            'nombre_alimento' => 'required|string|max:100',
+            'grasas' =>  'required|string|max:100',
+            'carbohidratos' =>  'required|string|max:100'
+
+        ];
+
+        $Mensaje=["required"=>':attribute es requerida'];
+
+        $this->validate($request, $campos, $Mensaje);
+
+
+
         $datosAlimento=request()->except('_token');
         
     
@@ -89,6 +104,23 @@ class AlimentoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
+        $campos=[
+
+            'nombre_alimento' => 'required|string|max:100',
+            'grasas' =>  'required|string|max:100',
+            'carbohidratos' =>  'required|string|max:100'
+
+        ];
+
+        $Mensaje=["required"=>':attribute es requerida'];
+
+        $this->validate($request, $campos, $Mensaje);
+        
+        
+        
+        
+        
         //
         $datosAlimento=request()->except(['_token','_method']);
         //

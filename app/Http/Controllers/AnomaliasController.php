@@ -46,10 +46,20 @@ class AnomaliasController extends Controller
     {
         //
 
+        $campos=[
+
+            'TipoAnomalia' => 'required|string|max:100',
+            'Descripcion' =>  'required|string|max:100'
+
+        ];
+
+        $Mensaje=["required"=>':attribute es requerida'];
+
+        $this->validate($request, $campos, $Mensaje);
+
 
         $datosAnomalia=request()->except('_token');
         
-    
         Anomalias::insert($datosAnomalia);//almacenar datos en la base de datos
 
 
@@ -78,6 +88,8 @@ class AnomaliasController extends Controller
      */
     public function edit($id)
     {
+        
+        
         //
         $anomalias= Anomalias::findOrFail($id);
 
@@ -95,6 +107,24 @@ class AnomaliasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
+        $campos=[
+
+            'TipoAnomalia' => 'required|string|max:100',
+            'Descripcion' =>  'required|string|max:100'
+
+        ];
+
+        $Mensaje=["required"=>':attribute es requerida'];
+
+        $this->validate($request, $campos, $Mensaje);
+
+        
+        
+        
+        
+        
+        
         //
         $datosAnomalia=request()->except(['_token','_method']);
         //

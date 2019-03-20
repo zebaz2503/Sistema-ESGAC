@@ -45,6 +45,21 @@ class RazasController extends Controller
         //
         //$datosRaza=request()->all();
 
+        $campos=[
+
+            'Nombre' => 'required|string|max:100',
+            'Descripcion' =>  'required|string|max:100',
+            'Foto' =>  'required|max:10000|mimes:jpg,png,jpeg',
+        ];
+
+        $Mensaje=["required"=>':attribute es requerida'];
+
+        $this->validate($request, $campos, $Mensaje);
+        
+        
+        
+        
+        
         $datosRaza=request()->except('_token');
         
         if ($request->hasFile('Foto')){//insertar no,bre de la foto
@@ -95,6 +110,26 @@ class RazasController extends Controller
     public function update(Request $request, $id)
 
     {
+
+        $campos=[
+
+            'Nombre' => 'required|string|max:100',
+            'Descripcion' =>  'required|string|max:100',
+            //'Foto' =>  'required|max:10000|mimes:jpg,png,jpeg',
+        ];
+
+        $Mensaje=["required"=>':attribute es requerida'];
+
+        $this->validate($request, $campos, $Mensaje);
+
+
+
+
+
+
+
+
+
         $datosRaza=request()->except(['_token','_method']);
         //
         
