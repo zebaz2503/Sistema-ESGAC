@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\alimento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Collective\Html;
 
 class AlimentoController extends Controller
 {
@@ -13,12 +14,16 @@ class AlimentoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $datos['alimentos']=Alimento::paginate(5);
 
+        //dd($request->get('name'));
 
+        //$datos['alimentos']=Alimento::paginate(5);
+
+        $datos['alimentos']= Alimento::name($request->get('name'))->paginate(5);
+        //$datos['alimentos']= Alimento::name($request->get('name'))->orderBy('id', 'DESC')->paginate(5);
         //utilizar la vista
         return view('alimentos.index',$datos);
 

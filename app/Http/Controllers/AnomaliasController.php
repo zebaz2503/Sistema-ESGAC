@@ -13,11 +13,12 @@ class AnomaliasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
 
-        $datos['anomalias']=Anomalias::paginate(5);
+        $datos['anomalias']= Anomalias::name($request->get('name'))->paginate(5);
+        //$datos['anomalias']=Anomalias::paginate(5);
 
 
         //utilizar la vista

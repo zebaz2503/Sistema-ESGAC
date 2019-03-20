@@ -22,7 +22,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <head>
         <meta charset="utf-8" />
-        <title>Metronic Admin Theme #2 | 404 Page Option 1</title>
+        <title>| ESGAC | </title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="Preview page of Metronic Admin Theme #2 for 404 page option 1" name="description" />
@@ -1564,7 +1564,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="page-content">
                     <!-- BEGIN PAGE HEADER-->
                     <!-- BEGIN THEME PANEL -->
-                    <div class="theme-panel">
+                    <!--<div class="theme-panel">
                         <div class="toggler tooltips" data-container="body" data-placement="left" data-html="true" data-original-title="Click to open advance theme customizer panel">
                             <i class="icon-settings"></i>
                         </div>
@@ -1639,7 +1639,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </select>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- END THEME PANEL -->
 
                     <!-- END PAGE HEADER-->
@@ -2247,7 +2247,7 @@ License: You must have a valid license purchased only from themeforest(the above
             </div>
             <!-- END FOOTER -->
             <!-- BEGIN QUICK NAV -->
-            <nav class="quick-nav">
+            <!--<nav class="quick-nav">
                 <a class="quick-nav-trigger" href="#0">
                     <span aria-hidden="true"></span>
                 </a>
@@ -2278,7 +2278,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     </li>
                 </ul>
                 <span aria-hidden="true" class="quick-nav-bg"></span>
-            </nav>
+            </nav>-->
             <div class="quick-nav-overlay"></div>
             <!-- END QUICK NAV -->
             <!--[if lt IE 9]>

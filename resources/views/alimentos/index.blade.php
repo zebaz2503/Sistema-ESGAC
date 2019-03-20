@@ -12,7 +12,19 @@ Session::get('Mensaje')
 <a href="{{ url('alimentos/create') }}" id="sample_editable_1_new" class="btn green-meadow">Agregar Alimento +</a>
 
 
-
+<!----------------------------------------------------------METODO DE BUSCAR------------------------------------------------->
+<div class="panel-body">
+  <form class="form-inline pull-right">
+  {!! Form::open(array('url' => '/alimentos/', 'method' => 'GET', 'class'=> 'navbar navbar-light bg-light pull-right', 'role'=>'search')) !!}
+  
+    <div class="form-group">  
+    {!! Form::text('name', null, ['class'=> 'form-control', 'placeholder'=> 'Buscar']) !!}                 
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </div>
+  </form>
+  {!! Form::close() !!}
+</div>
+<!----------------------------------------------------------------------------------------------------------->
 <table class="table table-striped table-hover table-bordered dataTable no-footer">
     <thead class="thead-light">
         <tr>
