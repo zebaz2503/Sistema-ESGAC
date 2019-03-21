@@ -15,12 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::get('admin', function () {
-    return view('admin.dashboards');
+/*Route::get('/canes/edit', function () {
+    return view('canes.edit');
 });*/
 
 
 Route::resource('razas', 'RazasController');
 Route::resource('anomalias', 'AnomaliasController');
 Route::resource('alimentos', 'AlimentoController');
+Route::resource('canes', 'CanesController');
 

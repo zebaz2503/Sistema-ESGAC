@@ -46,7 +46,7 @@ class AnomaliasController extends Controller
     public function store(Request $request)
     {
         //
-
+////////////////////////Validacion///////////////////////////////////////////
         $campos=[
 
             'TipoAnomalia' => 'required|string|max:100',
@@ -58,7 +58,7 @@ class AnomaliasController extends Controller
 
         $this->validate($request, $campos, $Mensaje);
 
-
+///////////////////////////////////////////////////////////////////////////////////
         $datosAnomalia=request()->except('_token');
         
         Anomalias::insert($datosAnomalia);//almacenar datos en la base de datos

@@ -49,7 +49,7 @@ class AlimentoController extends Controller
     public function store(Request $request)
     {
         //
-
+        ///////////////////////////////////////////
         $campos=[
 
             'nombre_alimento' => 'required|string|max:100',
@@ -62,7 +62,7 @@ class AlimentoController extends Controller
 
         $this->validate($request, $campos, $Mensaje);
 
-
+        ///////////////////////////////////////////////////////
 
         $datosAlimento=request()->except('_token');
         
