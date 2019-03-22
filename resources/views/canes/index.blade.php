@@ -62,8 +62,8 @@ Session::get('Mensaje')
             
             </form>
 
-            <a href="" id="sample_editable_1_new" class="btn yellow">
-            Ver Can
+            <a href="{{ url('/canes/' .$can-> id) }}" id="sample_editable_1_new" class="btn yellow">
+            Ver 
             </a>
            
 

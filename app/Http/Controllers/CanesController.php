@@ -93,8 +93,9 @@ class CanesController extends Controller
     public function show($id)
     {
         //
-        $canes= Canes::findOrFail($id);
-
+        //metodo  para mostrar los detalles de cana registro 
+        $canes= Canes::find($id);
+        //dd($canes);
         //return view('canes.ver', $canes);
         return view('canes.ver', compact('canes'));
 
