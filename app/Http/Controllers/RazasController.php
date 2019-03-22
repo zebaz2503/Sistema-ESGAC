@@ -122,13 +122,7 @@ class RazasController extends Controller
 
         $this->validate($request, $campos, $Mensaje);
 
-
-
-
-
-
-
-
+////////////////////////////////////////////////////////////////////////////////////
 
         $datosRaza=request()->except(['_token','_method']);
         //

@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::get('/canes/edit', function () {
-    return view('canes.edit');
+/*Route::get('/canes/form_ver', function () {
+    return view('canes.form_ver');
 });*/
 
 

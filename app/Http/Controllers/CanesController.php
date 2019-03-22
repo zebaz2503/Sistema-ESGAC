@@ -14,15 +14,14 @@ class CanesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         //$datos['canes']=Canes::paginate(5);
 
-        //$datos['alimentos']= Alimento::name($request->get('name'))->paginate(5);
-    
-        //utilizar la vista
-        return view('canes.index');
+        $datos['canes']= Canes::name($request->get('name'))->paginate(5);
+            //utilizar la vista
+        return view('canes.index', $datos);
 
 
     }
@@ -71,18 +70,17 @@ class CanesController extends Controller
         $this->validate($request, $campos, $Mensaje);
 
 ////////////////////////////////////////////////////////////////////////////////
-
         $datosCan=request()->except('_token');
-        
-    
+                
+        if ($request->hasFile('foto_can')){//insertar nombre de la foto
+
+            $datosCan['foto_can']=$request->file('foto_can')->store('uploads','public');        
+        }//la imagen se almacena en la base de datos y en la carpeta storage
+
         Canes::insert($datosCan);//almacenar datos en la base de datos
 
-
         //return response()->json($datosRaza);
-        return redirect('canes')->with('Mensaje','Anomalia agregada con éxito!!');
-
-
-
+        return redirect('canes')->with('Mensaje','Can agregado con éxito!!');
 
     }
 
@@ -92,9 +90,14 @@ class CanesController extends Controller
      * @param  \App\Canes  $canes
      * @return \Illuminate\Http\Response
      */
-    public function show(Canes $canes)
+    public function show($id)
     {
         //
+        $canes= Canes::findOrFail($id);
+
+        //return view('canes.ver', $canes);
+        return view('canes.ver', compact('canes'));
+
     }
 
     /**
@@ -106,7 +109,7 @@ class CanesController extends Controller
     public function edit($id)
     {
         //
-        $canes= Can::findOrFail($id);
+        $canes= Canes::findOrFail($id);
         //return view('canes.edit');
         return view('canes.edit', compact('canes'));
     }
@@ -118,9 +121,45 @@ class CanesController extends Controller
      * @param  \App\Canes  $canes
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Canes $canes)
+    public function update(Request $request, $id)
     {
         //
+        $campos=[
+
+            'nombre_can' =>  'required|string|max:100',
+            'raza' => 'required|string|max:100',
+            'estado' => 'required|string|max:100',
+            'edad' => 'required|string|max:100',
+            'peso' => 'required|string|max:100',
+            'condicion_cor' => 'required|string|max:100',
+            'rer' => 'required|string|max:100',
+            'red' => 'required|string|max:100',
+            'racion' => 'required|string|max:100',
+            'sexo' => 'required|string|max:100',
+            'tipo_alimento' => 'required|string|max:100',
+            'variables' => 'required|string|max:100'
+
+        ];
+
+        $Mensaje=["required"=>':attribute es requerida'];
+
+        $this->validate($request, $campos, $Mensaje);
+//////////////////////////////////////////////////////////////////////////
+        $datosCan=request()->except(['_token','_method']);
+        //
+        if ($request->hasFile('foto_can')){//insertar no,bre de la foto
+
+            $canes= Canes::findOrFail($id);
+
+            Storage::delete('public/'.$canes->foto_can);
+
+            $datosCan['foto_can']=$request->file('foto_can')->store('uploads','public');        
+        }//la imagen se almacena en la base de datos y en la carpeta storage
+
+        Canes::where('id','=',$id)->update($datosCan);
+       
+        return redirect('canes')->with('Mensaje','Anomalia modificada con éxito!!');
+
         
     }
 
@@ -130,8 +169,12 @@ class CanesController extends Controller
      * @param  \App\Canes  $canes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Canes $canes)
+    public function destroy($id)
     {
         //
+        $canes= Canes::findOrFail($id);
+        
+        Canes::destroy($id); // borrar algun elemento de la base de datos
+        return redirect('canes')->with('Mensaje','Can eliminado');
     }
 }

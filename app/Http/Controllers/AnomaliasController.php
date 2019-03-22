@@ -16,7 +16,7 @@ class AnomaliasController extends Controller
     public function index(Request $request)
     {
         //
-
+        //linea modificada para el metodo de buscar
         $datos['anomalias']= Anomalias::name($request->get('name'))->paginate(5);
         //$datos['anomalias']=Anomalias::paginate(5);
 
@@ -119,19 +119,10 @@ class AnomaliasController extends Controller
         $Mensaje=["required"=>':attribute es requerida'];
 
         $this->validate($request, $campos, $Mensaje);
-
-        
-        
-        
-        
-        
-        
+//////////////////////////////////////////////////////////////////////////
         //
         $datosAnomalia=request()->except(['_token','_method']);
         //
-        
-        
-
         Anomalias::where('id','=',$id)->update($datosAnomalia);
 
         //consultar la informacion de razas

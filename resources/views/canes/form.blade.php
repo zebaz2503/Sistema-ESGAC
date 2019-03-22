@@ -165,11 +165,20 @@
             <div class="form-group">
             <label for="sexo" class="control-label">{{'Sexo'}}</label>
             <span class="required" aria-required="true"> * </span>
-            <input type="text"  class="form-control  {{$errors->has('sexo')?'is-invalid':'' }}" 
+
+            <select for="sexo" class="form-control" data-placeholder="Choose a Category" 
+                name="sexo" 
+                id="sexo" 
+                tabindex="1" value="{{ isset($canes->sexo) ? $canes->sexo:old('sexo') }}">
+                 <option value="Hembra">Hembra</option>
+                 <option value="Macho">Macho</option>
+            </select>
+
+            <!--<input type="text"  class="form-control  {{$errors->has('sexo')?'is-invalid':'' }}" 
             name="sexo" 
             id="sexo" 
 
-            value="{{ isset($canes->sexo) ? $canes->sexo:old('sexo') }}">
+            value="{{ isset($canes->sexo) ? $canes->sexo:old('sexo') }}">-->
 
             {!! $errors->first('sexo','<div class="invalid-feedback">:message</div>')    !!}
 
@@ -177,7 +186,6 @@
             </div>
         </div>
         
-       
         <!---------------------------------------------------------------------------------------------------->
          
         <div class="col-md-6">
