@@ -18,7 +18,7 @@ class CanesController extends Controller
     {
         //
         //$datos['canes']=Canes::paginate(5);
-
+      
         $datos['canes']= Canes::name($request->get('name'))->paginate(5);
             //utilizar la vista
         return view('canes.index', $datos);
@@ -94,7 +94,13 @@ class CanesController extends Controller
     {
         //
         //metodo  para mostrar los detalles de cana registro 
-        $canes= Canes::find($id);
+        $canes= Canes::findOrFail($id);
+
+        /*if ($canes == null){
+            return view('errors.404');
+        }*/
+
+
         //dd($canes);
         //return view('canes.ver', $canes);
         return view('canes.ver', compact('canes'));

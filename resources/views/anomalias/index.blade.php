@@ -3,10 +3,12 @@
 @section('content')
 
 
-@if(Session::has('Mensaje')){{
+@if(Session::has('Mensaje'))
 
-Session::get('Mensaje')
-}}
+<div class="alert alert-success" role="alert">
+
+{{Session::get('Mensaje')}}
+</div>
 @endif
 
 <a href="{{ url('anomalias/create') }}" id="sample_editable_1_new" class="btn green-meadow">Agregar Anomalias +</a>
@@ -68,6 +70,8 @@ Session::get('Mensaje')
     @endforeach   
     </tbody>
 </table>
+
+{{ $anomalias-> links() }}
 
 @endsection
 

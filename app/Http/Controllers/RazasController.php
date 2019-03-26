@@ -13,9 +13,11 @@ class RazasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $datos['razas']=Razas::paginate(5);
+        //$datos['razas']=Razas::paginate(5);
+
+        $datos['razas']= Razas::name($request->get('name'))->paginate(5);
 
 
         //utilizar la vista
