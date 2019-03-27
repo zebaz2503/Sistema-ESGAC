@@ -24,4 +24,5 @@ Route::resource('razas', 'RazasController');
 Route::resource('anomalias', 'AnomaliasController');
 Route::resource('alimentos', 'AlimentoController');
 Route::resource('canes', 'CanesController');
+Route::resource('usuarios', 'UsuariosController');
 

@@ -128,7 +128,7 @@ class CanesController extends Controller
         ////////////////////////////////////////////////////////////////////////////
         $canes= Canes::findOrFail($id);
         //return view('canes.edit');
-        return view('canes.edit', compact('canes'));
+        return view('canes.edit', compact('canes','razas', 'alimentos'));
     }
 
     /**

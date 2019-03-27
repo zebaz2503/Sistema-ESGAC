@@ -32,8 +32,8 @@
         <th style="text-align: center">#</th>
         <th style="text-align: center">Foto</th>
         <th style="text-align: center">Nombre Del Can</th>
-        <th style="text-align: center">Edad</th>
-        <th style="text-align: center">Peso</th>
+        <th style="text-align: center">Edad (Meses)</th>
+        <th style="text-align: center">Peso (Kg)</th> 
         <th style="text-align: center">Acciones</th>
         </tr>
     </thead>

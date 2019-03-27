@@ -48,12 +48,6 @@
                 @endforeach
                 
                 </select>
-                
-             <!--<input type="text"  class="form-control  {{$errors->has('raza')?'is-invalid':'' }}" 
-                name="raza" 
-                id="raza" 
-
-                value="{{ isset($canes->raza) ? $canes->raza:old('raza') }}">-->
 
                 {!! $errors->first('raza','<div class="invalid-feedback">:message </div>')    !!}
 
@@ -212,14 +206,6 @@
                 @endforeach
                 
             </select>
-
-
-            <!--<input type="text"  class="form-control  {{$errors->has('tipo_alimento')?'is-invalid':'' }}" 
-            name="tipo_alimento" 
-            id="tipo_alimento" 
-
-            value="{{ isset($canes->tipo_alimento) ? $canes->tipo_alimento:old('tipo_alimento') }}">-->
-
             {!! $errors->first('tipo_alimento','<div class="invalid-feedback">:message</div>')    !!}
 
 
