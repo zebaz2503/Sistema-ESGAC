@@ -29,11 +29,6 @@
 
 
 
-
-
-
-
-
 <table class="table table-striped table-hover table-bordered dataTable no-footer">
     <thead class="thead-light">
         <tr>

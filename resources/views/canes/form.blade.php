@@ -35,31 +35,44 @@
     <!---------------------------------------------------------------------------------------------------->
         <div class="col-md-6">
             <div class="form-group">
-            <label for="raza" class="control-label">{{'Raza'}}</label>
-            <span class="required" aria-required="true"> * </span>
-            <input type="text"  class="form-control  {{$errors->has('raza')?'is-invalid':'' }}" 
-            name="raza" 
-            id="raza" 
+                <label for="raza" class="control-label">{{'Raza'}}</label>
+                <span class="required" aria-required="true"> * </span>
+                
+                <select name="raza" id="raza" 
+                class="form-control {{$errors->has('raza')?'is-invalid':'' }}"  
+                value="{{ isset($canes->raza) ? $canes->raza:old('raza') }}">     
+                
+                <option value=""> >> Elija una opción << </option>
+                @foreach($razas as $raza)
+                    <option value="{{ $raza->nombre }}"> {{ $raza->nombre }} </option>
+                @endforeach
+                
+                </select>
+                
+             <!--<input type="text"  class="form-control  {{$errors->has('raza')?'is-invalid':'' }}" 
+                name="raza" 
+                id="raza" 
 
-            value="{{ isset($canes->raza) ? $canes->raza:old('raza') }}">
+                value="{{ isset($canes->raza) ? $canes->raza:old('raza') }}">-->
 
-            {!! $errors->first('raza','<div class="invalid-feedback">:message</div>')    !!}
+                {!! $errors->first('raza','<div class="invalid-feedback">:message </div>')    !!}
 
             </div>
         </div>   
+
         
     <!---------------------------------------------------------------------------------------------------->
         <div class="col-md-6">
             <div class="form-group">
-            <label for="estado" class="control-label">{{'Estado'}}</label>
-            <span class="required" aria-required="true"> * </span>
-            <input type="text"  class="form-control  {{$errors->has('estado')?'is-invalid':'' }}" 
-            name="estado" 
-            id="estado" 
+                <label for="estado" class="control-label">{{'Estado'}}</label>
+                <span class="required" aria-required="true"> * </span>
+                <input type="text"  class="form-control  {{$errors->has('estado')?'is-invalid':'' }}" 
+                name="estado" 
+                id="estado" 
 
-            value="{{ isset($canes->estado) ? $canes->estado:old('estado') }}">
+                value="{{ isset($canes->estado) ? $canes->estado:old('estado') }}">
 
-            {!! $errors->first('estado','<div class="invalid-feedback">:message</div>')    !!}
+                {!! $errors->first('estado','<div class="invalid-feedback">:message</div>')    !!}
 
 
             </div>
@@ -170,15 +183,11 @@
                 name="sexo" 
                 id="sexo" 
                 tabindex="1" value="{{ isset($canes->sexo) ? $canes->sexo:old('sexo') }}">
+                 <option value=""> >> Elija una opción << </option>
                  <option value="Hembra">Hembra</option>
                  <option value="Macho">Macho</option>
             </select>
 
-            <!--<input type="text"  class="form-control  {{$errors->has('sexo')?'is-invalid':'' }}" 
-            name="sexo" 
-            id="sexo" 
-
-            value="{{ isset($canes->sexo) ? $canes->sexo:old('sexo') }}">-->
 
             {!! $errors->first('sexo','<div class="invalid-feedback">:message</div>')    !!}
 
@@ -192,11 +201,24 @@
             <div class="form-group">
             <label for="tipo_alimento" class="control-label">{{'Tipo De Alimento'}}</label>
             <span class="required" aria-required="true"> * </span>
-            <input type="text"  class="form-control  {{$errors->has('tipo_alimento')?'is-invalid':'' }}" 
+
+            <select name="tipo_alimento" id="tipo_alimento" 
+            class="form-control {{$errors->has('tipo_alimento')?'is-invalid':'' }}"  
+                value="{{ isset($canes->tipo_alimento) ? $canes->tipo_alimento:old('tipo_alimento') }}">     
+                
+                <option value=""> >> Elija una opción << </option>
+                @foreach($alimentos as $alimento)
+                    <option value="{{ $alimento->nombre_alimento }}"> {{ $alimento->nombre_alimento}} </option>
+                @endforeach
+                
+            </select>
+
+
+            <!--<input type="text"  class="form-control  {{$errors->has('tipo_alimento')?'is-invalid':'' }}" 
             name="tipo_alimento" 
             id="tipo_alimento" 
 
-            value="{{ isset($canes->tipo_alimento) ? $canes->tipo_alimento:old('tipo_alimento') }}">
+            value="{{ isset($canes->tipo_alimento) ? $canes->tipo_alimento:old('tipo_alimento') }}">-->
 
             {!! $errors->first('tipo_alimento','<div class="invalid-feedback">:message</div>')    !!}
 

@@ -6,6 +6,8 @@ use App\Canes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Collective\Html;
+use App\razas;
+use App\alimento;
 
 class CanesController extends Controller
 {
@@ -18,7 +20,7 @@ class CanesController extends Controller
     {
         //
         //$datos['canes']=Canes::paginate(5);
-      
+        
         $datos['canes']= Canes::name($request->get('name'))->paginate(5);
             //utilizar la vista
         return view('canes.index', $datos);
@@ -33,8 +35,11 @@ class CanesController extends Controller
      */
     public function create()
     {
+        
+        $razas = Razas::all();// ver datos de la tabla raza
+        $alimentos = Alimento::all();
         //
-        return view('canes.create');
+        return view('canes.create', compact('razas', 'alimentos'));
     }
 
     /**
@@ -45,6 +50,7 @@ class CanesController extends Controller
      */
     public function store(Request $request)
     {
+        //$razas = Razas::all();// ver datos de la tabla raza
         //Validacion
 
         $campos=[
@@ -93,6 +99,8 @@ class CanesController extends Controller
     public function show($id)
     {
         //
+        $razas = Razas::all();// ver datos de la tabla raza
+        $alimentos = Alimento::all();
         //metodo  para mostrar los detalles de cana registro 
         $canes= Canes::findOrFail($id);
 
@@ -115,7 +123,9 @@ class CanesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $alimentos = Alimento::all();
+        $razas = Razas::all(); //metodo  para recargar las razas de la tabla razas
+        ////////////////////////////////////////////////////////////////////////////
         $canes= Canes::findOrFail($id);
         //return view('canes.edit');
         return view('canes.edit', compact('canes'));
@@ -130,7 +140,9 @@ class CanesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $razas = Razas::all();
+        $alimentos = Alimento::all();
+        //////////////////////////////////////
         $campos=[
 
             'nombre_can' =>  'required|string|max:100',

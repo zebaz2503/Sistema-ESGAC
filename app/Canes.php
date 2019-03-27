@@ -5,7 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Collective\Html;
-
+use App\razas;
+use App\alimento;
 
 class Canes extends Model
 {
