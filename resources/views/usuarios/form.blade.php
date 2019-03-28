@@ -1,4 +1,4 @@
-<h1>Crear Usuario</h1>
+
 <div class="portlet light bordered">
     <div class="row">
         <div class="col-md-6">
