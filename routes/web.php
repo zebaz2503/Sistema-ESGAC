@@ -26,3 +26,7 @@ Route::resource('alimentos', 'AlimentoController');
 Route::resource('canes', 'CanesController');
 Route::resource('usuarios', 'UsuariosController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
