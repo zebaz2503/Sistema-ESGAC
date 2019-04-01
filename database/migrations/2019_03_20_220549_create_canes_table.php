@@ -29,6 +29,10 @@ class CreateCanesTable extends Migration
             $table->string('sexo');
             $table->string('tipo_alimento');
             $table->string('variables');
+            ////////////////////////////////////////
+            $table->string('TipoAnomalia');
+            $table->string('Descripcion');
+            $table->string('Fecha');
                         
             $table->timestamps();
         });
