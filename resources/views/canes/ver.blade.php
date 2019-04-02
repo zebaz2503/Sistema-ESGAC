@@ -104,6 +104,18 @@
                 <div class="col-md-6">
                         <div class="form-group">
                                                                                                                                     
+                            <label class="control-label col-md-3">Ración:</label>
+                        <div class="col-md-9">
+                            <p class="form-control-static"> {{ $canes-> racion}} Gramos</p>
+                        </div>                                              
+                    </div>
+                </div>  
+                
+             <!----------------------------------------------------->
+                
+                <div class="col-md-6">
+                        <div class="form-group">
+                                                                                                                                    
                             <label class="control-label col-md-3">Sexo:</label>
                         <div class="col-md-9">
                             <p class="form-control-static"> {{ $canes-> sexo}} </p>
@@ -210,9 +222,6 @@
                                 </button>
                                 <a href="{{ url('canes') }}" class="btn dark">Volver</a>
 
-
-
-
                 </form>        
 
             </div>
@@ -229,7 +238,6 @@
         </div>
         <!-- -------------------------------   -------------------------------------------->
 </div>
-
 
 <div class="portlet box blue">
 

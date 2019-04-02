@@ -25,7 +25,7 @@ Route::resource('anomalias', 'AnomaliasController');
 Route::resource('alimentos', 'AlimentoController');
 Route::resource('canes', 'CanesController');
 Route::resource('usuarios', 'UsuariosController');
-
+Route::resource('alimentacion', 'AlimentacionController');
 
 Auth::routes();
 

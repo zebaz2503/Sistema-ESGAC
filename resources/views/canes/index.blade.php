@@ -46,8 +46,8 @@
           <img src="{{ asset('storage').'/' .$can->foto_can}}" class="img-thumbnail img-fluid" alt=""  width="100">
           </td>
           <td align="center">{{ $can->nombre_can}}</td><!--tener cuidado con el nombre en la tabla de base de datos-->
-          <td align="center">{{ $can->edad}}</td>
-          <td align="center">{{ $can->peso}}</td><!--tener cuidado con el nombre en la tabla de base de datos-->
+          <td align="center">{{ $can->edad}} Meses</td>
+          <td align="center">{{ $can->peso}} Kg</td><!--tener cuidado con el nombre en la tabla de base de datos-->
           
           <td align="center">
             <a class="btn btn-transparent green btn-outline btn-circle btn-sm active" href="{{ url('/canes/'.$can->id.'/edit') }}">

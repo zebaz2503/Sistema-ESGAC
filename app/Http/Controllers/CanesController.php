@@ -177,7 +177,7 @@ class CanesController extends Controller
 
         Canes::where('id','=',$id)->update($datosCan);
        
-        return redirect('canes')->with('Mensaje','Anomalia modificada con éxito!!');
+        return redirect('canes')->with('Mensaje','Can modificado con éxito!!');
 
         
     }
