@@ -46,8 +46,8 @@ class UsuariosController extends Controller
             'apellidos' =>  'required|string|max:100',
             'cedula' => 'required|string|max:15',
             'correo' =>  'required|string|max:50',
-            'correo' => 'required|string|max:100',
-            'telefono' =>  'required|string|max:100',
+            'telefono' => 'required|string|max:100',
+            'contraseña' =>  'required|string|max:100',
             'rango' => 'required|string|max:100',
             'rol' =>  'required|string|max:100'
 
@@ -112,8 +112,8 @@ class UsuariosController extends Controller
             'apellidos' =>  'required|string|max:100',
             'cedula' => 'required|string|max:15',
             'correo' =>  'required|string|max:50',
-            'correo' => 'required|string|max:100',
-            'telefono' =>  'required|string|max:100',
+            'telefono' => 'required|string|max:100',
+            'contraseña' =>  'required|string|max:100',
             'rango' => 'required|string|max:100',
             'rol' =>  'required|string|max:100'
 

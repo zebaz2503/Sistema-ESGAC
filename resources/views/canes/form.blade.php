@@ -1,4 +1,5 @@
 <div class="portlet light bordered">
+    <h2>Canes</h2>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -229,9 +230,10 @@
         </div>
 
     </div> 
-</div>
+
 <!---------------------------------------------------------------------------------------------------->
 
-<input class="btn btn-primary" type="submit" value="{{ $Modo=='crear' ? 'Agregar':'Modificar'  }}">
+    <input class="btn btn-primary" type="submit" value="{{ $Modo=='crear' ? 'Agregar':'Modificar'  }}">
 
-<a href="{{ url('canes') }}" class="btn dark">Volver</a>
+    <a href="{{ url('canes') }}" class="btn dark">Volver</a>
+</div>

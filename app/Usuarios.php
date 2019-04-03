@@ -13,7 +13,7 @@ class Usuarios extends Model
         if(trim($name) != ""){
             $query->where(\DB::raw("CONCAT(nombres, apellidos, cedula,' ')"), "LIKE", "%$name%");
         }
-        //$query->where('TipoAnomalia',$name);
+     
     
     }
     
