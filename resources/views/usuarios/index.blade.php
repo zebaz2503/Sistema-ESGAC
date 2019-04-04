@@ -39,22 +39,22 @@
     </thead>
 
     <tbody>
-    @foreach($usuarios as $usuario) <!--variable unica para mostrar-->
+    @foreach($users as $user) <!--variable unica para mostrar-->
         <tr>
         <td align="center">{{$loop->iteration}}</td>
          
-        <td align="center">{{ $usuario->nombres}}</th><!--tener cuidado con el nombre en la tabla de base de datos-->
-        <td align="center">{{ $usuario->apellidos}}</th>
-        <td align="center">{{ $usuario->rango}}</th>
+        <td align="center">{{ $user->name}}</th><!--tener cuidado con el nombre en la tabla de base de datos-->
+        <td align="center">{{ $user->apellido}}</th>
+        <td align="center">{{ $user->rango}}</th>
         <td align="center">
         <!--  -->
             
-            <a class="btn btn-transparent green btn-outline btn-circle btn-sm active" href="{{ url('/usuarios/'.$usuario->id.'/edit') }}">
+            <a class="btn btn-transparent green btn-outline btn-circle btn-sm active" href="{{ url('/usuarios/'.$user->id.'/edit') }}">
             Editar
             </a>
             
             <!--metodo para borrar un dato de la base de datos-->
-            <form method="post" action="{{ url('/usuarios/'.$usuario->id) }}" style="display:inline">
+            <form method="post" action="{{ url('/usuarios/'.$user->id) }}" style="display:inline">
             {{csrf_field()}}
 
             {{ method_field('DELETE') }}
@@ -70,7 +70,7 @@
 
 </table>
 
-{{ $usuarios -> links() }}
+{{ $users -> links() }}
 
 
 

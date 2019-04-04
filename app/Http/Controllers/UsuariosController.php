@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Usuarios;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+
 
 class UsuariosController extends Controller
 {
+ 
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +21,8 @@ class UsuariosController extends Controller
     public function index(Request $request)
     {
         //
-        $datos['usuarios']= Usuarios::name($request->get('name'))->paginate(5);
+        $datos['users']= User::name($request->get('name'))->paginate(5);
+        //dd($datos);
         return view('usuarios.index', $datos);
     }
 
@@ -42,12 +49,12 @@ class UsuariosController extends Controller
         ////////////////////////Validacion///////////////////////////////////////////
         $campos=[
 
-            'nombres' => 'required|string|max:100',
-            'apellidos' =>  'required|string|max:100',
+            'name' => 'required|string|max:100',
+            'apellido' =>  'required|string|max:100',
             'cedula' => 'required|string|max:15',
-            'correo' =>  'required|string|max:50',
+            'email' =>  'required|string|max:50',
             'telefono' => 'required|string|max:100',
-            'contraseña' =>  'required|string|max:100',
+            'password' =>  'required|string|max:100',
             'rango' => 'required|string|max:100',
             'rol' =>  'required|string|max:100'
 
@@ -60,12 +67,21 @@ class UsuariosController extends Controller
 ///////////////////////////////////////////////////////////////////////////////////
 
 
-
-
         $datosUsuario=request()->except('_token');
         
-        Usuarios::insert($datosUsuario);//almacenar datos en la base de datos
+        $usuario = new User;
+        $usuario->name = $request->name;
+        $usuario->apellido = $request->apellido;
+        $usuario->cedula = $request->cedula;
+        $usuario->email = $request->email;
+        $usuario->telefono = $request->telefono;
+        $usuario->password = Hash::make($request->password);
+        $usuario->rango = $request->rango;
+        $usuario->rol = $request->rol;
+        $usuario->save();
 
+        //dd($usuario);
+        //User::insert($datosUsuario);//almacenar datos en la base de datos
 
         //return response()->json($datosRaza);
         return redirect('usuarios')->with('Mensaje','Usuario agragado con éxito!!');
@@ -91,9 +107,9 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
-        $usuarios= Usuarios::findOrFail($id);
+        $users= User::findOrFail($id);
         //
-        return view('usuarios.edit', compact('usuarios'));
+        return view('usuarios.edit', compact('users'));
     }
 
     /**
@@ -108,12 +124,12 @@ class UsuariosController extends Controller
         //
         $campos=[
 
-            'nombres' => 'required|string|max:100',
-            'apellidos' =>  'required|string|max:100',
+            'name' => 'required|string|max:100',
+            'apellido' =>  'required|string|max:100',
             'cedula' => 'required|string|max:15',
-            'correo' =>  'required|string|max:50',
+            'email' =>  'required|string|max:50',
             'telefono' => 'required|string|max:100',
-            'contraseña' =>  'required|string|max:100',
+            'password' =>  'required|string|max:100',
             'rango' => 'required|string|max:100',
             'rol' =>  'required|string|max:100'
 
@@ -123,10 +139,22 @@ class UsuariosController extends Controller
 
         $this->validate($request, $campos, $Mensaje);
 //////////////////////////////////////////////////////////////////////////
-        //
+            //dd($request);
+            $usuario = User::find($id);
+            $usuario->name = $request->name;
+            $usuario->apellido = $request->apellido;
+            $usuario->cedula = $request->cedula;
+            $usuario->email = $request->email;
+            $usuario->telefono = $request->telefono;
+            $usuario->password = Hash::make($request->password);
+            $usuario->rango = $request->rango;
+            $usuario->rol = $request->rol;
+            $usuario->save();
+
+//
         $datosUsuario=request()->except(['_token','_method']);
         //
-        Usuarios::where('id','=',$id)->update($datosUsuario);
+        //Usuarios::where('id','=',$id)->update($datosUsuario);
 
         //consultar la informacion de razas
        // $razas= Razas::findOrFail($id);
@@ -146,9 +174,9 @@ class UsuariosController extends Controller
     public function destroy($id)
     {
         //
-        $usuarios= Usuarios::findOrFail($id);
+        $users= User::findOrFail($id);
         
-        Usuarios::destroy($id); // borrar algun elemento de la base de datos
+        User::destroy($id); // borrar algun elemento de la base de datos
 
         
         return redirect('usuarios')->with('Mensaje','Usuario eliminado');

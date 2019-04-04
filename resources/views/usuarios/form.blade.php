@@ -5,30 +5,30 @@
     <div class="row">
         <div class="col-md-6">
                     <div class="form-group">
-                        <label for="nombres" class="control-label">{{'Nombres'}}</label>
+                        <label for="name" class="control-label">{{'Nombres'}}</label>
                         <span class="required" aria-required="true"> * </span>
-                        <input type="text"  class="form-control  {{$errors->has('nombres')?'is-invalid':'' }}" 
-                        name="nombres" 
-                        id="nombres" 
+                        <input type="text"  class="form-control  {{$errors->has('name')?'is-invalid':'' }}" 
+                        name="name" 
+                        id="name" 
 
-                        value="{{ isset($usuarios->nombres) ? $usuarios->nombres:old('nombres') }}">
+                        value="{{ isset($users->name) ? $users->name:old('name') }}">
 
-                        {!! $errors->first('nombres','<div class="invalid-feedback">:message</div>') !!}
+                        {!! $errors->first('name','<div class="invalid-feedback">:message</div>') !!}
 
                     </div>
             </div>
 <!------------------------------------------------------------------------------------------------------------------------>
             <div class="col-md-6">
                     <div class="form-group">
-                        <label for="apellidos" class="control-label">{{'Apellidos'}}</label>
+                        <label for="apellido" class="control-label">{{'Apellidos'}}</label>
                         <span class="required" aria-required="true"> * </span>
-                        <input type="text"  class="form-control  {{$errors->has('apellidos')?'is-invalid':'' }}" 
-                        name="apellidos" 
-                        id="apellidos" 
+                        <input type="text"  class="form-control  {{$errors->has('apellido')?'is-invalid':'' }}" 
+                        name="apellido" 
+                        id="apellido" 
 
-                        value="{{ isset($usuarios->apellidos) ? $usuarios->apellidos:old('apellidos') }}">
+                        value="{{ isset($users->apellido) ? $users->apellido:old('apellido') }}">
 
-                        {!! $errors->first('apellidos','<div class="invalid-feedback">:message</div>') !!}
+                        {!! $errors->first('apellido','<div class="invalid-feedback">:message</div>') !!}
 
                     </div>
             </div>
@@ -41,7 +41,7 @@
                         name="cedula" 
                         id="cedula" 
 
-                        value="{{ isset($usuarios->cedula) ? $usuarios->cedula:old('cedula') }}">
+                        value="{{ isset($users->cedula) ? $users->cedula:old('cedula') }}">
 
                         {!! $errors->first('cedula','<div class="invalid-feedback">:message</div>') !!}
 
@@ -50,15 +50,15 @@
 <!------------------------------------------------------------------------------------------------------------------------>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="correo" class="control-label">{{'Correo'}}</label>
+                        <label for="email" class="control-label">{{'Email'}}</label>
                         <span class="required" aria-required="true"> * </span>
-                        <input type="email"  class="form-control  {{$errors->has('correo')?'is-invalid':'' }}" 
-                        name="correo" 
-                        id="correo" 
+                        <input type="email"  class="form-control  {{$errors->has('email')?'is-invalid':'' }}" 
+                        name="email" 
+                        id="email" 
 
-                        value="{{ isset($usuarios->correo) ? $usuarios->correo:old('correo') }}">
+                        value="{{ isset($users->email) ? $users->email:old('email') }}">
 
-                        {!! $errors->first('correo','<div class="invalid-feedback">:message</div>') !!}
+                        {!! $errors->first('email','<div class="invalid-feedback">:message</div>') !!}
 
                     </div>
             </div>
@@ -71,7 +71,7 @@
                         name="telefono" 
                         id="telefono" 
 
-                        value="{{ isset($usuarios->telefono) ? $usuarios->telefono:old('telefono') }}">
+                        value="{{ isset($users->telefono) ? $users->telefono:old('telefono') }}">
 
                         {!! $errors->first('telefono','<div class="invalid-feedback">:message</div>') !!}
 
@@ -80,14 +80,14 @@
 <!------------------------------------------------------------------------------------------------------------------------>
              <div class="col-md-6">
                     <div class="form-group">
-                        <label for="contraseña" class="control-label">{{'Contraseña'}}</label>
+                        <label for="password" class="control-label">{{'Contraseña'}}</label>
                         <span class="required" aria-required="true"> * </span>
-                        <input type="password"  class="form-control  {{$errors->has('contraseña')?'is-invalid':'' }}" 
-                        name="contraseña" 
-                        id="contraseña" 
+                        <input type="password"  class="form-control  {{$errors->has('password')?'is-invalid':'' }}" 
+                        name="password" 
+                        id="password" 
 
 
-                        value="{{ isset($usuarios->contraseña) ? $usuarios->contraseña:old('contraseña') }}">
+                        value="{{ isset($users->password) ? $users->password:old('password') }}">
 
                         <!--@if ($errors->has('contraseña'))
                                     <span class="invalid-feedback" role="alert">
@@ -100,7 +100,7 @@
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                         -->
                         
-                        {!! $errors->first('contraseña','<div class="invalid-feedback">:message</div>') !!}  
+                        {!! $errors->first('password','<div class="invalid-feedback">:message</div>') !!}  
 
 
 
@@ -115,7 +115,7 @@
                         name="rango" 
                         id="rango" 
 
-                        value="{{ isset($usuarios->rango) ? $usuarios->rango:old('rango') }}">
+                        value="{{ isset($users->rango) ? $users->rango:old('rango') }}">
 
                         {!! $errors->first('rango','<div class="invalid-feedback">:message</div>') !!}
 
@@ -130,7 +130,7 @@
                         name="rol" 
                         id="rol" 
 
-                        value="{{ isset($usuarios->rol) ? $usuarios->rol:old('rol') }}">
+                        value="{{ isset($users->rol) ? $users->rol:old('rol') }}">
 
                         {!! $errors->first('rol','<div class="invalid-feedback">:message</div>') !!}
 

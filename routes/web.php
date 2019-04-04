@@ -13,10 +13,13 @@
 
 Route::get('/', function () {
     return view('welcome');
+    //$pdf = App::make('dompdf.wrapper');
+    /*$pdf = PDF::loadHTML('<h1>Test</h1>');
+    return $pdf->stream();*/
 });
 
-/*Route::get('/canes/form_ver', function () {
-    return view('canes.form_ver');
+/*Route::get('/usuarios/login', function () {
+    return view('usuarios.login');
 });*/
 
 
@@ -30,3 +33,5 @@ Route::resource('alimentacion', 'AlimentacionController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+

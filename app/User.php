@@ -24,7 +24,14 @@ class User extends Authenticatable
 
 
     }
+    public function scopeName($query, $name){
 
+        if(trim($name) != ""){
+            $query->where(\DB::raw("CONCAT(name, apellido, cedula,' ')"), "LIKE", "%$name%");
+        }
+     
+    
+    }
 
 
     public function hasAnyRole($roles){

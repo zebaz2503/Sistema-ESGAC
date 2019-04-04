@@ -15,7 +15,7 @@
 @endif
 
 
-<form action=" {{ url('/usuarios/'. $usuarios->id) }}" method="post" enctype="multipart/form-data">
+<form action=" {{ url('/usuarios/'. $users->id) }}" method="post" enctype="multipart/form-data">
 {{ csrf_field() }}
 {{ method_field('PATCH') }}
 

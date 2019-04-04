@@ -261,25 +261,6 @@
                 @endforeach
                 </tbody>
             </table>
-   
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

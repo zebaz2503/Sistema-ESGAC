@@ -19,9 +19,12 @@ class AnomaliasController extends Controller
         //
         
         $canes = Canes::all();
+        
+
         //linea modificada para el metodo de buscar
         $datos['anomalias']= Anomalias::name($request->get('name'))->paginate(10);
         //$datos['anomalias']=Anomalias::paginate(5);
+
 
 
         //utilizar la vista
