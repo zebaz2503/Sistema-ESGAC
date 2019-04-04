@@ -22,17 +22,9 @@ public function scopeName($query, $name){
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
+public function id_can(){
+        return $this->belongsTo(Canes::class);
+}
 
 
 }

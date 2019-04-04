@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Collective\Html;
 use App\razas;
 use App\alimento;
+use App\anomalias;
 
 class CanesController extends Controller
 {
@@ -99,6 +100,7 @@ class CanesController extends Controller
     public function show($id)
     {
         //
+        $anomalias = anomalias::where('id_can', '=', $id)->get();
         $razas = Razas::all();// ver datos de la tabla raza
         $alimentos = Alimento::all();
         //metodo  para mostrar los detalles de cana registro 
@@ -111,7 +113,7 @@ class CanesController extends Controller
 
         //dd($canes);
         //return view('canes.ver', $canes);
-        return view('canes.ver', compact('canes'));
+        return view('canes.ver',['anomalias'=>$anomalias], compact('canes'));
 
     }
 

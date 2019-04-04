@@ -32,20 +32,27 @@
     <thead class="thead-light">
         <tr>
         <th style="text-align: center">#</th>
+        <th style="text-align: center">Nombre Can</th>
         <th style="text-align: center">Tipo de Anomalia</th>
         <th style="text-align: center">Descripción</th>
+        <th style="text-align: center">Fecha</th>
         <th style="text-align: center">Acciones</th>
         </tr>
     </thead>
+
 
 
     <tbody>
     @foreach($anomalias as $anomalia) <!--variable unica para mostrar-->
         <tr>
         <td align="center">{{$loop->iteration}}</td>
-         
+        
+        <td align="center">{{ $anomalia->id_can}}</th>
         <td align="center">{{ $anomalia->TipoAnomalia}}</th><!--tener cuidado con el nombre en la tabla de base de datos-->
         <td align="center">{{ $anomalia->Descripcion}}</th>
+        <td align="center">{{ $anomalia->created_at}}</th>
+
+
         
         <td align="center">
             

@@ -4,6 +4,7 @@
 
 
 
+
     <div class="portlet-body form">
     <!-- BEGIN FORM-->
         <form class="form-horizontal" role="form">  
@@ -158,7 +159,7 @@
         <!-- -------------------------------   -------------------------------------------->
 </div>
 
-<div class="portlet box blue">
+<!--<div class="portlet box blue">
 
     <div class="portlet-title">
         <div class="caption">
@@ -168,11 +169,11 @@
                 </div>
             </div>
             <div class="portlet-body form">
-                                                        <!-- BEGIN FORM-->
-                <form action="#" method="post">
-                <!--<input  type="hidden" value="{{ csrf_field() }}"></input>-->
+                                                        
+                <form action="{{ route ('anomalias.store') }}" method="post">
+            
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                
+                <input type="hidden" name="id_can" value="{{ $canes->id }}">
                         <div class="portlet light form-fit ">
                             <div class="portlet-title">
                                 <div class="caption">
@@ -185,41 +186,36 @@
                         
                                 <div class="form-group">
                                     <label for="TipoAnomalia" class="control-label">{{'Tipo Anomalia'}}</label>
-                                    <!--<span class="required" aria-required="true"> * </span>-->
+                                    <span class="required" aria-required="true"> * </span>
                                     <input type="text"  class="form-control  {{$errors->has('TipoAnomalia')?'is-invalid':'' }}" 
                                     name="TipoAnomalia" 
                                     id="TipoAnomalia" 
 
                                     value="{{ isset($anomalias->TipoAnomalia) ? $anomalias->TipoAnomalia:old('TipoAnomalia') }}">
 
-                                   <!-- {!! $errors->first('TipoAnomalia','<div class="invalid-feedback">:message</div>')    !!}--
+                                   <- {!! $errors->first('TipoAnomalia','<div class="invalid-feedback">:message</div>')    !!}
 
 
                                 </div>
 
-                                    <!-- -------------------------------   -------------------------------------------->
+         
 
                                 <div class="form-group">
                                     <label for="Descripcion" class="control-label">{{'Descripcion'}}</label>
-                                    <!--<span class="required" aria-required="true"> * </span>-->
+                                    <span class="required" aria-required="true"> * </span>
                             
                                     <textarea type="text" class="form-control {{$errors->has('Descripcion')?'is-invalid':'' }}" 
                                     name="Descripcion" 
                                     id="Descripcion" 
                                     value="{{ isset($anomalias->Descripcion) ? $anomalias->Descripcion:'' }}" >  </textarea>
 
-                                    <!--{!! $errors->first('Descripcion','<div class="invalid-feedback">:message</div>')    !!}-->
+                                    {!! $errors->first('Descripcion','<div class="invalid-feedback">:message</div>')    !!}
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="Descripcion" class="control-label">{{'Fecha'}}</label>
-                                    <input id="date" type="date" class="form-control">
-                                </div>
-
+                          
                                 
-                                <button type="submit" class="btn btn-primary">
-                                        Registrar Anomalia
-                                </button>
+                                <input type="submit" class="btn btn-primary" value="Registrar Anomalia"></input>                                     
+                                
                                 <a href="{{ url('canes') }}" class="btn dark">Volver</a>
 
                 </form>        
@@ -227,45 +223,46 @@
             </div>
         </div>
     </div>
-</div>    
+</div>--->
 
-<div class="portlet-body form">
-     
-        <!-- -------------------------------   -------------------------------------------->
 
-        <div class="form-group">
-        <hr style="width:75%;">
-        </div>
-        <!-- -------------------------------   -------------------------------------------->
-</div>
 
-<div class="portlet box blue">
-
+<div class="portlet box green">
     <div class="portlet-title">
-        <div class="caption">
+            <div class="caption">
                     <i class="fa fa-gift"></i>Ver Anomalias </div>
-                <div class="tools">
-                    <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>                                     
-                </div>
-            </div>
-            <div class="portlet-body form">
-                                                        <!-- BEGIN FORM-->
-                <form action="#">
-                        <div class="portlet light form-fit ">
-                            <div class="portlet-title">
-                                
-                                    <i class="icon-social-dribbble font-green"></i>
-                                    <span class="caption-subject font-green bold uppercase">Ver Anomalias</span>
-                            </div>                         
-                        </div>
-                </form>        
-
+            
             </div>
         </div>
-    </div>
-</div>    
+</div>            
+
+            <table class="table table-striped table-hover table-bordered dataTable no-footer">
+                <thead class="thead-light">
+                    <tr>
+                    <th style="text-align: center">#</th>
+                    <th style="text-align: center">Tipo de Anomalia</th>
+                    <th style="text-align: center">Descripción</th>
+
+                    </tr>
+                </thead>
 
 
+                <tbody>
+                @foreach ($anomalias as $anomalia) <!--variable unica para mostrar-->
+                    <tr>
+                    <td align="center">{{$loop->iteration}}</td>
+                    
+                    <td align="center">{{ $anomalia->TipoAnomalia}}</th><!--tener cuidado con el nombre en la tabla de base de datos-->
+                    <td align="center">{{ $anomalia->Descripcion}}</th>
+                    
+                                    <!-------------------------------->
+                                        
+                
+                @endforeach
+                </tbody>
+            </table>
+   
+ 
 
 
 

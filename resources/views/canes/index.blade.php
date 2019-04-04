@@ -67,6 +67,10 @@
             <a href="{{ url('/canes/' .$can-> id) }}" id="sample_editable_1_new" class="btn yellow">
             Ver 
             </a>
+
+            <a href="{{ url('/anomalias.create/' .$can-> id) }}" id="sample_editable_1_new" class="btn red">
+            Registrar Anomalia 
+            </a>
            
 
           </td>

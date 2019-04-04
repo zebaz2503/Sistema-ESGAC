@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Anomalias;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Canes;
 
 class AnomaliasController extends Controller
 {
@@ -16,13 +17,15 @@ class AnomaliasController extends Controller
     public function index(Request $request)
     {
         //
+        
+        $canes = Canes::all();
         //linea modificada para el metodo de buscar
-        $datos['anomalias']= Anomalias::name($request->get('name'))->paginate(5);
+        $datos['anomalias']= Anomalias::name($request->get('name'))->paginate(10);
         //$datos['anomalias']=Anomalias::paginate(5);
 
 
         //utilizar la vista
-        return view('anomalias.index',$datos);
+        return view('anomalias.index',$datos, compact('canes'));
 
     }
 
@@ -34,7 +37,8 @@ class AnomaliasController extends Controller
     public function create()
     {
         //
-        return view('anomalias.create');
+        $canes = Canes::all();
+        return view('anomalias.create', compact('canes'));
     }
 
     /**
@@ -50,10 +54,13 @@ class AnomaliasController extends Controller
         $campos=[
 
             'TipoAnomalia' => 'required|string|max:100',
-            'Descripcion' =>  'required|string|max:100'
+            'Descripcion' =>  'required|string|max:100', 
+            'id_can' => 'integer',
+            'id_usuario' => 'integer'
+
 
         ];
-
+        //dd($request);
         $Mensaje=["required"=>':attribute es requerida'];
 
         $this->validate($request, $campos, $Mensaje);

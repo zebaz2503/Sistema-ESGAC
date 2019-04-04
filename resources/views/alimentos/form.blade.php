@@ -7,7 +7,7 @@
         <input type="text" class="form-control {{$errors->has('nombre_alimento')?'is-invalid':'' }}" 
         name="nombre_alimento" 
         id="nombre_alimento" 
-
+        
         value="{{ isset($alimentos->nombre_alimento) ? $alimentos->nombre_alimento:'' }}">
         {!! $errors->first('nombre_alimento','<div class="invalid-feedback">:message</div>')    !!}
 

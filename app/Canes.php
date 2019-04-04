@@ -22,5 +22,8 @@ public function scopeName($query, $name){
 
     }
 
+    public function anomalia(){
+        return $this-> hasMany(anomalias::class);
+    }
 
 }
