@@ -12,6 +12,15 @@ use App\anomalias;
 
 class CanesController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:veterinario,enfermero'
+            
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *

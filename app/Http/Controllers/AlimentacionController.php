@@ -10,6 +10,15 @@ use App\Canes;
 
 class AlimentacionController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:operador'
+            
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *

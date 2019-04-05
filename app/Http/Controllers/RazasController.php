@@ -6,8 +6,19 @@ use App\Razas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+
+
 class RazasController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:admin'
+            
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +27,7 @@ class RazasController extends Controller
     public function index(Request $request)
     {
         //$datos['razas']=Razas::paginate(5);
-
+       
         $datos['razas']= Razas::name($request->get('name'))->paginate(5);
 
 

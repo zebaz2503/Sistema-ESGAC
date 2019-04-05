@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
     //$pdf = App::make('dompdf.wrapper');
     /*$pdf = PDF::loadHTML('<h1>Test</h1>');
     return $pdf->stream();*/
@@ -30,8 +30,13 @@ Route::resource('canes', 'CanesController');
 Route::resource('usuarios', 'UsuariosController');
 Route::resource('alimentacion', 'AlimentacionController');
 
-Auth::routes();
+Route::get('pdf', 'PdfController@CrearPDF');
+
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Auth::routes(['register'=>false, 'reset'=>false]);
 
 

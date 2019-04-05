@@ -155,7 +155,7 @@
         <!---------------------------------------------------------------------------------------------------->
         <div class="col-md-6">
             <div class="form-group">
-            <label for="racion" class="control-label">{{'Racion'}}</label>
+            <label for="racion" class="control-label">{{'Racion (Gramos)'}}</label>
             <span class="required" aria-required="true"> * </span>
             <input type="text"  class="form-control  {{$errors->has('racion')?'is-invalid':'' }}" 
             name="racion" 

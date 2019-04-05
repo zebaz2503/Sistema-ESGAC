@@ -17,12 +17,13 @@ class ValidarRol
     public function handle($request, Closure $next)
     {
         $roles = array_slice( \func_get_args(),2 );
-
-        if(auth()->user()->hasAnyRole($roles)){
-            
+        
+        if(auth()->user()->hasRoles($roles)){            
             return $next($request);
         }
-
-    return Redirect::back();
+        else{
+            abort(404,'pagina no encontrada');
+        }
+        
     }
 }

@@ -8,10 +8,21 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Role;
 
 
 class UsuariosController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:admin'
+            
+        ]);
+    }
+    
  
     /**
      * Display a listing of the resource.
@@ -34,7 +45,10 @@ class UsuariosController extends Controller
     public function create()
     {
         //
-        return view('usuarios.create');
+
+        $roles = Role::all();
+        
+        return view('usuarios.create', compact('roles'));
     }
 
     /**

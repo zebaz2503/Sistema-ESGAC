@@ -122,7 +122,7 @@
                     </div>
             </div>
 <!------------------------------------------------------------------------------------------------------------------------>
-                <div class="col-md-6">
+                <!--<div class="col-md-6">
                     <div class="form-group">
                         <label for="rol" class="control-label">{{'Rol'}}</label>
                         <span class="required" aria-required="true"> * </span>
@@ -135,7 +135,42 @@
                         {!! $errors->first('rol','<div class="invalid-feedback">:message</div>') !!}
 
                     </div>
+            </div>-->
+
+            <div class="col-md-6">
+            <div class="form-group">
+            <label for="rol" class="control-label">{{'Rol'}}</label>
+            <span class="required" aria-required="true"> * </span>
+
+            <select name="rol" id="rol" 
+            class="form-control {{$errors->has('rol')?'is-invalid':'' }}"  
+                value="{{ isset($canes->rol) ? $canes->rol:old('rol') }}">     
+                
+                <option value=""> >> Elija una opción << </option>
+                @foreach($roles as $rol)
+                    <option value="{{ $rol->id }}"> {{ $rol->name}} </option>
+                @endforeach
+                
+            </select>
+            {!! $errors->first('rol','<div class="invalid-feedback">:message</div>')    !!}
+
+
             </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!------------------------------------------------------------------------------------------------------------------------>
      </div>
 <input class="btn btn-primary" type="submit" value="{{ $Modo=='crear' ? 'Agregar':'Modificar'  }}">

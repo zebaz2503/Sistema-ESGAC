@@ -133,8 +133,28 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <span class="badge badge-default"> 7 </span>
                                 </a>-->
                                 <h3>SISTEMA DE INFORMACIÓN PARA EL CONTROL DE ALIMENTACIÓN (ESGAC)</h3>
-                                <ul class="dropdown-menu">
+                                <li class="nav-item dropdown">
+
                                 
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    
+                                    <a  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                                </li>
+                                <ul class="dropdown-menu">
+
                                     <!--<li class="external">
                                         <h3>
                                             <span class="bold">12 pending</span> notifications</h3>
@@ -489,6 +509,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                     <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
                     <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                    @if(auth()->user()->hasRoles(['admin']))
                     <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                         <li class="nav-item start ">
                             <a href="javascript:;" class="nav-link nav-toggle">
@@ -497,178 +518,328 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item start ">
-                                    <a href="{{ url('usuarios/create') }}" class="nav-link ">
-                                        <i class="icon-plus"></i>
-                                        <span class="title">Crear Usuario</span>
+
+
+                            <li class="nav-item start ">
+                                    <a href="{{ url('usuarios') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Usuario</span>
                                     </a>
                                 </li>
 
+
+                                <li class="nav-item start ">
+                                    <a href="{{ url('usuarios/create') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Crear Usuario</span>
+                                    </a>
+                                </li>
+ 
                             </ul>
                         </li>
-                        <li class="nav-item  ">
+                    </ul>
+                    @endif
+                    <!---------------------------------------------------------->
+
+                    @if(auth()->user()->hasRoles(['admin']))
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start ">
                             <a href="javascript:;" class="nav-link nav-toggle">
-                                <i class="icon-diamond"></i>
-                                <span class="title">UI Features</span>
+                                <i class="glyphicon glyphicon-apple"></i>
+                                <span class="title">Alimentos</span>
                                 <span class="arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                    <a href="ui_metronic_grid.html" class="nav-link ">
-                                        <span class="title">Metronic Grid System</span>
+
+
+                            <li class="nav-item start ">
+                                    <a href="{{ url('alimentos') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Alimento</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_colors.html" class="nav-link ">
-                                        <span class="title">Color Library</span>
+
+
+                                <li class="nav-item start ">
+                                    <a href="{{ url('alimentos/create') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Crear Alimento</span>
                                     </a>
                                 </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_general.html" class="nav-link ">
-                                        <span class="title">General Components</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_buttons.html" class="nav-link ">
-                                        <span class="title">Buttons</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_buttons_spinner.html" class="nav-link ">
-                                        <span class="title">Spinner Buttons</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_confirmations.html" class="nav-link ">
-                                        <span class="title">Popover Confirmations</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_sweetalert.html" class="nav-link ">
-                                        <span class="title">Bootstrap Sweet Alerts</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_icons.html" class="nav-link ">
-                                        <span class="title">Font Icons</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_socicons.html" class="nav-link ">
-                                        <span class="title">Social Icons</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_typography.html" class="nav-link ">
-                                        <span class="title">Typography</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_tabs_accordions_navs.html" class="nav-link ">
-                                        <span class="title">Tabs, Accordions & Navs</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_timeline.html" class="nav-link ">
-                                        <span class="title">Timeline 1</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_timeline_2.html" class="nav-link ">
-                                        <span class="title">Timeline 2</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_timeline_horizontal.html" class="nav-link ">
-                                        <span class="title">Horizontal Timeline</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_tree.html" class="nav-link ">
-                                        <span class="title">Tree View</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="javascript:;" class="nav-link nav-toggle">
-                                        <span class="title">Page Progress Bar</span>
-                                        <span class="arrow"></span>
-                                    </a>
-                                    <ul class="sub-menu">
-                                        <li class="nav-item ">
-                                            <a href="ui_page_progress_style_1.html" class="nav-link "> Flash </a>
-                                        </li>
-                                        <li class="nav-item ">
-                                            <a href="ui_page_progress_style_2.html" class="nav-link "> Big Counter </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_blockui.html" class="nav-link ">
-                                        <span class="title">Block UI</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_bootstrap_growl.html" class="nav-link ">
-                                        <span class="title">Bootstrap Growl Notifications</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_notific8.html" class="nav-link ">
-                                        <span class="title">Notific8 Notifications</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_toastr.html" class="nav-link ">
-                                        <span class="title">Toastr Notifications</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_bootbox.html" class="nav-link ">
-                                        <span class="title">Bootbox Dialogs</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_alerts_api.html" class="nav-link ">
-                                        <span class="title">Metronic Alerts API</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_session_timeout.html" class="nav-link ">
-                                        <span class="title">Session Timeout</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_idle_timeout.html" class="nav-link ">
-                                        <span class="title">User Idle Timeout</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_modals.html" class="nav-link ">
-                                        <span class="title">Modals</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_extended_modals.html" class="nav-link ">
-                                        <span class="title">Extended Modals</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_tiles.html" class="nav-link ">
-                                        <span class="title">Tiles</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_datepaginator.html" class="nav-link ">
-                                        <span class="title">Date Paginator</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="ui_nestable.html" class="nav-link ">
-                                        <span class="title">Nestable List</span>
-                                    </a>
-                                </li>
+ 
                             </ul>
                         </li>
+                    </ul>
+                    @endif
+<!------------------------------------------------->
+                    
+
+                    @if(auth()->user()->hasRoles(['admin']))
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="glyphicon glyphicon-heart"></i>
+                                <span class="title">Razas</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+
+                            <li class="nav-item start ">
+                                    <a href="{{ url('razas') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Razas</span>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item start ">
+                                    <a href="{{ url('razas/create') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Crear Raza</span>
+                                    </a>
+                                </li>
+ 
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+
+<!------------------------------------------------->
+
+<!------------------------------------------------->
+                    
+
+                @if(auth()->user()->hasRoles(['admin']))
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                                <span class="title">Reportes</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+
+                            <li class="nav-item start ">
+                                    <a href="{{ url('') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Reportes</span>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item start ">
+                                    <a href="{{ url('') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Reportes</span>
+                                    </a>
+                                </li>
+ 
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+
+<!------------------------------------------------->
+<!---------------------veterinario---------------------------->
+                    
+
+            @if(auth()->user()->hasRoles(['veterinario']))
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="	glyphicon glyphicon-plus-sign"></i>
+                                <span class="title">Canes</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+
+                            <li class="nav-item start ">
+                                    <a href="{{ url('canes') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Canes</span>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item start ">
+                                    <a href="{{ url('canes/create') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Crear Can</span>
+                                    </a>
+                                </li>
+ 
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+
+<!------------------------------------------------->
+
+                @if(auth()->user()->hasRoles(['veterinario']))
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                                <span class="title">Anomalias</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+
+                            <li class="nav-item start ">
+                                    <a href="{{ url('anomalias') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Anomalias</span>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item start ">
+                                    <a href="{{ url('anomalias/create') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Crear Anomalia</span>
+                                    </a>
+                                </li>
+ 
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+
+<!------------------------------------------------->
+
+<!---------------------enfermero---------------------------->
+                    
+
+            @if(auth()->user()->hasRoles(['enfermero']))
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="	glyphicon glyphicon-plus-sign"></i>
+                                <span class="title">Canes</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+
+                            <li class="nav-item start ">
+                                    <a href="{{ url('canes') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Canes</span>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item start ">
+                                    <a href="{{ url('canes/create') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Crear Can</span>
+                                    </a>
+                                </li>
+ 
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+
+<!------------------------------------------------->
+
+                @if(auth()->user()->hasRoles(['enfermero']))
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                                <span class="title">Anomalias</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+
+                            <li class="nav-item start ">
+                                    <a href="{{ url('anomalias') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Anomalias</span>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item start ">
+                                    <a href="{{ url('anomalias/create') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Crear Anomalia</span>
+                                    </a>
+                                </li>
+ 
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+
+<!------------------------------------------------->
+
+<!---------------------operador---------------------------->
+
+                @if(auth()->user()->hasRoles(['operador']))
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                                <span class="title">Anomalias</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+
+                            <li class="nav-item start ">
+                                    <a href="{{ url('anomalias') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Anomalias</span>
+                                    </a>
+                                </li>
+
+
+                                <li class="nav-item start ">
+                                    <a href="{{ url('anomalias/create') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Crear Anomalia</span>
+                                    </a>
+                                </li>
+ 
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+
+<!------------------------------------------------->
+
+                @if(auth()->user()->hasRoles(['operador']))
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="glyphicon glyphicon-leaf"></i>
+                                <span class="title">Alimentación Canina</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+
+                            <li class="nav-item start ">
+                                    <a href="{{ url('alimentacion') }}" class="nav-link ">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Alimentar</span>
+                                    </a>
+                                </li>
+
+ 
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+                    
+                    <!--<ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                         <li class="nav-item  ">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-puzzle"></i>
@@ -785,6 +956,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </li>
                             </ul>
                         </li>
+                    </ul>
+
+
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                         <li class="nav-item  ">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-settings"></i>
@@ -868,6 +1043,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </li>
                             </ul>
                         </li>
+
+                        </ul>
+
+
+                        <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                         <li class="nav-item  ">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-bulb"></i>
@@ -902,6 +1082,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </li>
                             </ul>
                         </li>
+                    </ul>
+
+
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                         <li class="nav-item  ">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-briefcase"></i>
@@ -961,6 +1145,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </li>
                             </ul>
                         </li>
+                    </ul>
+
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                         <li class="nav-item  ">
                             <a href="?p=" class="nav-link nav-toggle">
                                 <i class="icon-wallet"></i>
@@ -995,6 +1182,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </li>
                             </ul>
                         </li>
+                    </ul>
+
+                    <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                         <li class="nav-item  ">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-bar-chart"></i>
@@ -1051,6 +1241,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </li>
                             </ul>
                         </li>
+
+                        </ul>
+
+                        <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                         <li class="nav-item  ">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-pointer"></i>
@@ -1070,7 +1264,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item  ">
+                    </ul>-->
+                        <!--<li class="nav-item  ">
                             <a href="javascript:;" class="nav-link nav-toggle">
                                 <i class="icon-layers"></i>
                                 <span class="title">Page Layouts</span>
@@ -1539,8 +1734,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </li>
                             </ul>
                         </li>
-                    </ul>
-                    <!-- END SIDEBAR MENU -->
+                    </ul>-hasta aca va el menu->
+                     <!--END SIDEBAR MENU -->
                 </div>
                 <!-- END SIDEBAR -->
             </div>

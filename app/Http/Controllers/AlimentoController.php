@@ -9,6 +9,14 @@ use Collective\Html;
 
 class AlimentoController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware([
+            'auth',
+            'roles:admin'
+            
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
