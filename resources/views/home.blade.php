@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('admin.layout')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+
+
+
+        <div align="center" class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 ">
+                <div class="card-header">|ESGAC|</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,10 +14,10 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <h1>Bienvenido {{ Auth::user()->name }}</h1>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        
+
+
 @endsection

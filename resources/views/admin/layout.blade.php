@@ -46,6 +46,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="{{ asset('/master_admin/layouts/layout2/css/themes/blue.min.css') }}" rel="stylesheet" type="text/css" id="style_color" />
         <link href="{{ asset('/master_admin/layouts/layout2/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
+        
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
 
@@ -142,10 +143,10 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     
-                                    <a  href="{{ route('logout') }}"
+                                    <a  href="{{ route('logout') }}" 
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Cerrar Sesión') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

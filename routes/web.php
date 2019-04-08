@@ -13,9 +13,7 @@
 
 Route::get('/', function () {
     return view('auth.login');
-    //$pdf = App::make('dompdf.wrapper');
-    /*$pdf = PDF::loadHTML('<h1>Test</h1>');
-    return $pdf->stream();*/
+
 });
 
 /*Route::get('/usuarios/login', function () {
@@ -32,7 +30,6 @@ Route::resource('alimentacion', 'AlimentacionController');
 
 Route::get('pdf', 'PdfController@CrearPDF');
 
-//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
