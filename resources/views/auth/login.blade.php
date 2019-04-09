@@ -2,9 +2,15 @@
 
 @section('content')
 <div class="container">
+<center>
+<!--<img class="login-logo" src="{{ asset('/escudo/escudo.jpg') }}" width="150" height="150"/>-->
+
+<img class="login-logo" src="{{ asset('/escudo/logo.png') }}" />
+</center>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+            
                 <div class="card-header">{{ __('Iniciar Sesión') }}</div>
 
                 <div class="card-body">
