@@ -37,3 +37,4 @@ Auth::routes(['register'=>false, 'reset'=>false]);
 
 
 Route::get('/imprimir', 'Controller@imprimir')->name('imprimir');
+Route::get('/imprimir_2', 'Controller@imprimir_2')->name('imprimir_2');

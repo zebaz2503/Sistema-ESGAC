@@ -631,9 +631,9 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
                                 <li class="nav-item start ">
-                                    <a href="{{ url('') }}" class="nav-link ">
+                                    <a href="{{ route('imprimir_2') }}" class="nav-link ">
                                         <i class="icon-check"></i>
-                                        <span class="title">Reportes</span>
+                                        <span class="title">Reporte Alimentación</span>
                                     </a>
                                 </li>
  

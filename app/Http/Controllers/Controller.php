@@ -34,9 +34,17 @@ class Controller extends BaseController
         return $pdf->stream();
 
         //return $pdf->download('pdf_canes.pdf');
-        
    }
 
+    public function imprimir_2(){
+        
+        $canes = Canes::all();
+        $view = view('pdf.pdf_comida', compact('canes'));
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf = \PDF::loadHTML($view);
+        return $pdf->stream();
+        
+    }
 
 
 }
