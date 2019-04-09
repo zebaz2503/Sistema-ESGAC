@@ -11,6 +11,8 @@
 @endif
 
 
+
+
 <a href="{{ url('usuarios/create') }}" id="sample_editable_1_new" class="btn green-meadow">Agregar Usuario +</a>
 
 <!----------------------------------------------------------METODO DE BUSCAR------------------------------------------------->
