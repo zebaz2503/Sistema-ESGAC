@@ -121,9 +121,10 @@ class UsuariosController extends Controller
      */
     public function edit($id)
     {
+        $roles = Role::all();
         $users= User::findOrFail($id);
         //
-        return view('usuarios.edit', compact('users'));
+        return view('usuarios.edit', compact('users', 'roles'));
     }
 
     /**
@@ -135,7 +136,8 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        
         $campos=[
 
             'name' => 'required|string|max:100',
@@ -171,7 +173,8 @@ class UsuariosController extends Controller
         //Usuarios::where('id','=',$id)->update($datosUsuario);
 
         //consultar la informacion de razas
-       // $razas= Razas::findOrFail($id);
+        //$users= User::findOrFail($id);
+        $roles = Role::all();
         //return view('razas.edit', compact('razas'));
        
         return redirect('usuarios')->with('Mensaje','Usuario modificado con éxito!!');
@@ -189,7 +192,6 @@ class UsuariosController extends Controller
     {
         //
         $users= User::findOrFail($id);
-        
         User::destroy($id); // borrar algun elemento de la base de datos
 
         

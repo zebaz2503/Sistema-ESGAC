@@ -33,7 +33,7 @@ Route::get('pdf', 'PdfController@CrearPDF');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes(['register'=>false, 'reset'=>false]);
+Auth::routes(['register'=>false]);
 
 
 Route::get('/imprimir', 'Controller@imprimir')->name('imprimir');

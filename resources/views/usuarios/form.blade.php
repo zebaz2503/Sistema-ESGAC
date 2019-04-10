@@ -144,7 +144,7 @@
 
             <select name="rol" id="rol" 
             class="form-control {{$errors->has('rol')?'is-invalid':'' }}"  
-                value="{{ isset($canes->rol) ? $canes->rol:old('rol') }}">     
+                value="{{ isset($users->rol) ? $users->rol:old('rol') }}">     
                 
                 <option value=""> >> Elija una opción << </option>
                 @foreach($roles as $rol)
@@ -157,19 +157,6 @@
 
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!------------------------------------------------------------------------------------------------------------------------>
      </div>

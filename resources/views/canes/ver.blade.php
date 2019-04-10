@@ -227,7 +227,7 @@
 
 
 
-<div class="portlet box green">
+<div class="portlet box blue-hoki">
     <div class="portlet-title">
             <div class="caption">
                     <i class="fa fa-gift"></i>Ver Anomalias </div>

@@ -43,7 +43,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END PAGE LEVEL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="{{ asset('/master_admin/layouts/layout2/css/layout.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('/master_admin/layouts/layout2/css/themes/blue.min.css') }}" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="{{ asset('/master_admin/layouts/layout2/css/themes/blue.min.1.css') }}" rel="stylesheet" type="text/css" id="style_color" />
         <link href="{{ asset('/master_admin/layouts/layout2/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         
@@ -133,7 +133,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <i class="icon-bell"></i>
                                     <span class="badge badge-default"> 7 </span>
                                 </a>-->
-                                <h3>SISTEMA DE INFORMACIÓN PARA EL CONTROL DE ALIMENTACIÓN (ESGAC)</h3>
+                                <h3>SISTEMA DE INFORMACIÓN PARA EL CONTROL DE ALIMENTACIÓN |ESGAC|</h3>
                                 <li class="nav-item dropdown">
 
                                 
