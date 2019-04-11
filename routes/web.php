@@ -28,8 +28,6 @@ Route::resource('canes', 'CanesController');
 Route::resource('usuarios', 'UsuariosController');
 Route::resource('alimentacion', 'AlimentacionController');
 
-Route::get('pdf', 'PdfController@CrearPDF');
-
 
 Route::get('/home', 'HomeController@index')->name('home');
 
