@@ -8,6 +8,9 @@
     <title>Reporte de Alimentación Canina</title>
 </head>
 <body>
+<center>
+<img class="login-logo" src="{{ asset('/escudo/logo.png') }}" />
+</center>
 <h4 align="center">SISTEMA DE INFORMACIÓN PARA EL CONTROL DE ALIMENTACIÓN |ESGAC| ALIMENTACIÓN CANINA</h4>
 
 <table class="table table-striped table-hover table-bordered dataTable no-footer">
@@ -24,7 +27,6 @@
     @foreach($canes as $can)
       <tr>
          
-
           <td align="center">{{ $can->nombre_can}}</td><!--tener cuidado con el nombre en la tabla de base de datos-->
           <td align="center">{{ $can->racion}} Gramos</td>
 
@@ -33,15 +35,6 @@
     </tbody>
 
 </table>
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

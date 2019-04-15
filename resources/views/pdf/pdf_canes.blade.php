@@ -8,6 +8,9 @@
   <title>Reporte Canes Registrados</title>
 </head>
 <body>
+<center>
+<img class="login-logo" src="{{ asset('/escudo/logo.png') }}" />
+</center>
   <h4 align="center">SISTEMA DE INFORMACIÓN PARA EL CONTROL DE ALIMENTACIÓN |ESGAC| CANES REGISTRADOS</h4>
 
 
