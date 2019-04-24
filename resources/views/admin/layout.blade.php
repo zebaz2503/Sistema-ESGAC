@@ -623,7 +623,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
                             <!--<a href="{{route('imprimir') }}">Imprimir PDF</a> ruta para imprimir o ver pdf--> 
                             <li class="nav-item start ">
-                                    <a href="{{route('imprimir') }}" class="nav-link ">
+                                    <a href="{{route('imprimir') }}" class="nav-link" target="blank">
                                         <i class="icon-check"></i>
                                         <span class="title">Reporte Canes</span>
                                     </a>
@@ -631,9 +631,23 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
                                 <li class="nav-item start ">
-                                    <a href="{{ route('imprimir_2') }}" class="nav-link ">
+                                    <a href="{{ route('imprimir_2') }}" class="nav-link" target="blank">
                                         <i class="icon-check"></i>
                                         <span class="title">Reporte Alimentación</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item start ">
+                                    <a href="{{ route('imprimir_3') }}" class="nav-link" target="blank">
+                                        <i class="icon-check"></i>
+                                        <span class="title">Reporte Alimentación por Operario</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item start ">
+                                    <a href="{{ url('pdfs') }}" class="nav-link" 
+                                        <i class="icon-check"></i>
+                                        <span class="title">Reporte por Fecha</span>
                                     </a>
                                 </li>
  

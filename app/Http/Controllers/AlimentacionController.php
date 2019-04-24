@@ -53,6 +53,20 @@ class AlimentacionController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);
+        $datosAlimento = request()->except('_token');
+
+        $alimentacion = new Alimentacion;
+        $alimentacion->id_can = $request->id_can;
+        $alimentacion->nombre_can = $request->nombre_can;
+        $alimentacion->racion = $request->racion;
+        $alimentacion->id_usuario = $request->id_usuario;
+        $alimentacion->name= $request->name;
+        $alimentacion->save();
+        
+
+        return redirect('alimentacion')->with('Mensaje','Alimentación Completa');
+
     }
 
     /**

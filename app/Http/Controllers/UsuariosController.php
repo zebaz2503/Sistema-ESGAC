@@ -145,7 +145,7 @@ class UsuariosController extends Controller
             'cedula' => 'required|string|max:15',
             'email' =>  'required|string|max:50|',
             'telefono' => 'required|string|max:100',
-            'password' =>  'required|string|max:100',
+            //'password' =>  'required|string|max:100',
             'rango' => 'required|string|max:100',
             'rol' =>  'required|string|max:100'
 
@@ -162,7 +162,7 @@ class UsuariosController extends Controller
             $usuario->cedula = $request->cedula;
             $usuario->email = $request->email;
             $usuario->telefono = $request->telefono;
-            $usuario->password = Hash::make($request->password);
+           // $usuario->password = Hash::make($request->password);
             $usuario->rango = $request->rango;
             $usuario->rol = $request->rol;
             $usuario->save();

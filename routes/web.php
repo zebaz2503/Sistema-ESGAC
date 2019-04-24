@@ -16,9 +16,9 @@ Route::get('/', function () {
 
 });
 
-/*Route::get('/usuarios/login', function () {
-    return view('usuarios.login');
-});*/
+// Route::get('/pdf', function () {
+//     return view('pdf.pdf_fecha');
+// });
 
 
 Route::resource('razas', 'RazasController');
@@ -27,7 +27,7 @@ Route::resource('alimentos', 'AlimentoController');
 Route::resource('canes', 'CanesController');
 Route::resource('usuarios', 'UsuariosController');
 Route::resource('alimentacion', 'AlimentacionController');
-
+Route::resource('pdfs', 'PdfController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -35,4 +35,8 @@ Auth::routes(['register'=>false]);
 
 
 Route::get('/imprimir', 'Controller@imprimir')->name('imprimir');
+
 Route::get('/imprimir_2', 'Controller@imprimir_2')->name('imprimir_2');
+Route::get('/imprimir_3', 'Controller@imprimir_3')->name('imprimir_3');
+
+

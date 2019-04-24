@@ -7,7 +7,10 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Canes;
+use App\Alimentacion;
+use Illuminate\Support\Facades\DB;
 
+use Illuminate\Http\Request;
 
 class Controller extends BaseController
 {
@@ -38,13 +41,25 @@ class Controller extends BaseController
 
     public function imprimir_2(){
         
-        $canes = Canes::all();
-        $view = view('pdf.pdf_comida', compact('canes'));
+        $alimentacion = Alimentacion::all();
+        $view = view('pdf.pdf_comida', compact('alimentacion'));
         $pdf = \App::make('dompdf.wrapper');
         $pdf = \PDF::loadHTML($view);
         return $pdf->stream();
         
     }
+
+    public function imprimir_3(){
+        
+        $alimentacion = DB::select('SELECT DISTINCT id_usuario, name , sum(racion) as racion from alimentacions group by id_usuario,name');
+        $view = view('pdf.pdf_operario', compact('alimentacion'));
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf = \PDF::loadHTML($view);
+        return $pdf->stream();
+        
+    }
+
+   
 
 
 }

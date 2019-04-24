@@ -87,7 +87,7 @@
                         id="password" 
 
 
-                        value="{{ isset($users->password) ? $users->password:old('password') }}">
+                        value="{{ isset($users->password) }}">
 
                         <!--@if ($errors->has('contraseña'))
                                     <span class="invalid-feedback" role="alert">

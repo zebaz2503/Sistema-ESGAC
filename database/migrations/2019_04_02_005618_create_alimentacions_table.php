@@ -15,6 +15,8 @@ class CreateAlimentacionsTable extends Migration
     {
         Schema::create('alimentacions', function (Blueprint $table) {
             $table->bigIncrements('id');
+   
+
             $table->timestamps();
         });
     }
